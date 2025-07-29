@@ -1,24 +1,13 @@
-const images = [
-  "images/foto1.jpg",
-  "images/foto2.jpg",
-  "images/foto3.jpg",
-  "images/foto4.jpg",
-  "images/foto5.jpg"
-];
+let slideIndex = 0;
+showSlides();
 
-let current = 0;
-const slideEl = document.getElementById("slide");
-
-function changeSlide() {
-  slideEl.classList.remove("active");
-  setTimeout(() => {
-    slideEl.src = images[current];
-    slideEl.onload = () => slideEl.classList.add("active");
-    current = (current + 1) % images.length;
-  }, 500);
+function showSlides() {
+  const slides = document.getElementsByClassName("slide");
+  for (let slide of slides) {
+    slide.style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 5000);
 }
-
-// Inicial
-slideEl.src = images[0];
-slideEl.onload = () => slideEl.classList.add("active");
-setInterval(changeSlide, 5000);
