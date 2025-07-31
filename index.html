@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrusel ICES</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel de Imágenes y Videos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="slideshow-container">
-    <div class="slide fade">
-      <img src="images/foto1.jpg" alt="Foto 1" />
-    </div>
-    <div class="slide fade">
-      <img src="images/foto2.jpg" alt="Foto 2" />
-    </div>
-    <div class="slide fade">
-      <img src="images/foto3.jpg" alt="Foto 3" />
-    </div>
-    <div class="slide fade">
-      <img src="images/foto4.jpg" alt="Foto 4" />
-    </div>
-    <div class="slide fade">
-      <img src="images/foto5.jpg" alt="Foto 5" />
-    </div>
-    <div class="slide fade">
-      <img src="images/foto6.jpg" alt="Foto 6" />
-    </div>
-  <div class="slide fade">
-      <img src="images/foto7.jpg" alt="Foto 7" />
-    </div>
-  <div class="slide fade">
-      <img src="images/foto8.jpg" alt="Foto 8" />
-   </div>
-  <div class="slide fade">
-      <img src="images/foto9.jpg" alt="Foto 9" />
-    </div>
-  <div class="slide fade">
-      <img src="images/foto10.jpg" alt="Foto 10" />
-    </div>
+  <div class="carousel">
+    <img id="slide-image" alt="Imagen del carrusel" style="display: none;" />
+    <video id="slide-video" autoplay muted playsinline style="display: none;"></video>
   </div>
 
   <script src="script.js"></script>
