@@ -10,6 +10,7 @@ const mediaItems = [
   { type: "image", src: "images/foto9.jpg" },
   { type: "image", src: "images/foto10.jpg" },
   { type: "video", src: "videos/video1.mp4" },
+  { type: "video", src: "videos/video2.mp4" },
 ];
 
 let current = 0;
