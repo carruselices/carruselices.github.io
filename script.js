@@ -9,8 +9,21 @@ const mediaItems = [
   { type: "image", src: "images/foto8.jpg" },
   { type: "image", src: "images/foto9.jpg" },
   { type: "image", src: "images/foto10.jpg" },
+  { type: "image", src: "images/foto11.jpg" },
+  { type: "image", src: "images/foto12.jpg" },
+  { type: "image", src: "images/foto13.jpg" },
+  { type: "image", src: "images/foto14.jpg" },
+  { type: "image", src: "images/foto15.jpg" },
   { type: "video", src: "videos/video1.mp4" },
   { type: "video", src: "videos/video2.mp4" },
+  { type: "video", src: "videos/video3.mp4" },
+  { type: "video", src: "videos/video4.mp4" },
+  { type: "video", src: "videos/video5.mp4" },
+  { type: "video", src: "videos/video6.mp4" },
+  { type: "video", src: "videos/video7.mp4" },
+  { type: "video", src: "videos/video8.mp4" },
+  { type: "video", src: "videos/video9.mp4" },
+  { type: "video", src: "videos/video10.mp4" },
 ];
 
 let current = 0;
