@@ -23,7 +23,7 @@ const mediaItems = [
   { type: "video", src: "videos/video7.mp4" },
   { type: "video", src: "videos/video8.mp4" },
   { type: "video", src: "videos/video9.mp4" },
-  { type: "video", src: "videos/video10.mp4" },
+  { type: "video", src: "videos/video10.mp4" }
 ];
 
 let current = 0;
@@ -31,32 +31,49 @@ const imageEl = document.getElementById("slide-image");
 const videoEl = document.getElementById("slide-video");
 
 function showNextMedia() {
+  // Ocultar ambos elementos
   imageEl.style.display = "none";
   videoEl.style.display = "none";
   imageEl.classList.remove("active");
   videoEl.classList.remove("active");
-  videoEl.pause(); // Pausar video anterior si sigue activo
+  videoEl.pause();
+
+  if (mediaItems.length === 0) return; // No hay media
 
   const item = mediaItems[current];
 
   if (item.type === "image") {
     imageEl.src = item.src;
+
     imageEl.onload = () => {
       imageEl.classList.add("active");
-    };
-    imageEl.style.display = "block";
+      imageEl.style.display = "block";
 
-    setTimeout(() => {
+      setTimeout(() => {
+        current = (current + 1) % mediaItems.length;
+        showNextMedia();
+      }, 5000); // Mostrar cada imagen 5s
+    };
+
+    imageEl.onerror = () => {
+      console.warn(`No se pudo cargar la imagen: ${item.src}`);
       current = (current + 1) % mediaItems.length;
       showNextMedia();
-    }, 5000);
+    };
   } else if (item.type === "video") {
     videoEl.src = item.src;
+
     videoEl.onloadeddata = () => {
       videoEl.classList.add("active");
+      videoEl.style.display = "block";
       videoEl.play();
     };
-    videoEl.style.display = "block";
+
+    videoEl.onerror = () => {
+      console.warn(`No se pudo cargar el video: ${item.src}`);
+      current = (current + 1) % mediaItems.length;
+      showNextMedia();
+    };
 
     videoEl.onended = () => {
       current = (current + 1) % mediaItems.length;
