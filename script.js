@@ -1,50 +1,35 @@
-const mediaItems = [
-  { type: "image", src: "images/foto1.jpg" },
-  { type: "image", src: "images/foto2.jpg" },
-  { type: "image", src: "images/foto3.jpg" },
-  { type: "image", src: "images/foto4.jpg" },
-  { type: "image", src: "images/foto5.jpg" },
-  { type: "image", src: "images/foto6.jpg" },
-  { type: "image", src: "images/foto7.jpg" },
-  { type: "image", src: "images/foto8.jpg" },
-  { type: "image", src: "images/foto9.jpg" },
-  { type: "image", src: "images/foto10.jpg" },
-  { type: "image", src: "images/foto11.jpg" },
-  { type: "image", src: "images/foto12.jpg" },
-  { type: "image", src: "images/foto13.jpg" },
-  { type: "image", src: "images/foto14.jpg" },
-  { type: "image", src: "images/foto15.jpg" },
-  { type: "video", src: "videos/video1.mp4" },
-  { type: "video", src: "videos/video2.mp4" },
-  { type: "video", src: "videos/video3.mp4" },
-  { type: "video", src: "videos/video4.mp4" },
-  { type: "video", src: "videos/video5.mp4" },
-  { type: "video", src: "videos/video6.mp4" },
-  { type: "video", src: "videos/video7.mp4" },
-  { type: "video", src: "videos/video8.mp4" },
-  { type: "video", src: "videos/video9.mp4" },
-  { type: "video", src: "videos/video10.mp4" }
-];
+const totalImages = 15;
+const totalVideos = 10;
+
+const mediaItems = [];
+
+// Generar automáticamente imágenes
+for (let i = 1; i <= totalImages; i++) {
+  mediaItems.push({ type: "image", src: `images/foto${i}.jpg` });
+}
+
+// Generar automáticamente videos
+for (let i = 1; i <= totalVideos; i++) {
+  mediaItems.push({ type: "video", src: `videos/video${i}.mp4` });
+}
 
 let current = 0;
 const imageEl = document.getElementById("slide-image");
 const videoEl = document.getElementById("slide-video");
 
 function showNextMedia() {
-  // Ocultar ambos elementos
   imageEl.style.display = "none";
   videoEl.style.display = "none";
   imageEl.classList.remove("active");
   videoEl.classList.remove("active");
   videoEl.pause();
 
-  if (mediaItems.length === 0) return; // No hay media
+  if (mediaItems.length === 0) return;
 
   const item = mediaItems[current];
 
   if (item.type === "image") {
     imageEl.src = item.src;
-
     imageEl.onload = () => {
       imageEl.classList.add("active");
       imageEl.style.display = "block";
@@ -52,7 +37,7 @@ function showNextMedia() {
       setTimeout(() => {
         current = (current + 1) % mediaItems.length;
         showNextMedia();
-      }, 5000); // Mostrar cada imagen 5s
+      }, 5000);
     };
 
     imageEl.onerror = () => {
@@ -84,3 +69,4 @@ function showNextMedia() {
 
 // Iniciar carrusel
 showNextMedia();
+
